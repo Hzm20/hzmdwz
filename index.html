@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" />
+    <title>寒泽陌的网站</title>
+    <style>
+      h2 {
+        background: linear-gradient(
+          to right,
+          violet,
+          indigo,
+          blue,
+          green,
+          yellow,
+          orange,
+          red
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: rainbow 10s ease infinite;
+      }
+
+      @keyframes rainbow {
+        0% {
+          background-position: 0%;
+        }
+
+        100% {
+          background-position: 200%;
+        }
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #e6ffe6;
+      }
+
+      header {
+        background-color: #93c572;
+        color: #000;
+        padding: 30px;
+        text-align: center;
+      }
+
+      header h2 {
+        margin: 0;
+        font-size: 24px;
+        color: #000;
+      }
+
+      #site-title {
+        font-size: 0.7cm;
+      }
+
+      nav {
+        background-color: #ecffdc;
+        padding: 10px;
+        text-align: center;
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav li {
+        margin: 0 10px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      nav a:hover {
+        color: #9b4dca;
+      }
+
+      section {
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 270px;
+        background-color: #f2fff2;
+        border-radius: 10px; /*增加圆角*/
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      @media screen and (orientation: landscape) {
+        section {
+          /* 在横屏时应用的样式 */
+          padding: 50px;
+          margin: 50px auto;
+          max-width: 500px;
+        }
+      }
+
+      section h2 {
+        font-size: 20px; /*调整字体大小*/
+      }
+
+      section p {
+        font-size: 16px; /*调整字体大小*/
+      }
+
+      article {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 20px;
+      }
+
+      article h3 {
+        margin-top: 0;
+        color: #6b4c8f;
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #000;
+      }
+
+      #contact {
+        text-align: center;
+      }
+
+      #contact p,
+      #contact a {
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #000;
+      }
+
+      #contact a.button {
+        padding: 8px 16px;
+        text-decoration: none;
+        background-color: #9b4dca;
+        color: #fff;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+
+      #contact a.button:hover {
+        background-color: #6b4c8f;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h2 id="greeting"></h2>
+      <script>
+        let greeting = document.getElementById("greeting");
+        let now = new Date();
+        let hour = now.getHours();
+        if (hour < 6) {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>凌晨好！";
+        } else if (hour < 9) {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>早上好！";
+        } else if (hour < 12) {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>上午好！";
+        } else if (hour < 14) {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>中午好！";
+        } else if (hour < 17) {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>下午好！";
+        } else if (hour < 19) {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>傍晚好！";
+        } else if (hour < 22) {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>晚上好！";
+        } else {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>夜里好！";
+        }
+    </script>
+    </header>
+    
+    <nav>
+      <ul>
+        <li><a href="#home">首页 丨</a></li>
+        <li><a href="#about">关于我  |</a></li>
+        <li><a href="#blog">文章  |</a></li>
+        <li><a href="#contact">联系我  |</a></li>
+        <li><a href="#jw">结尾</a></li>
+      </ul>
+    </nav>
+    
+        <img src="img.jpg" width="auto" height="200"/>
+    
+    <section id="home">
+      <h1>首页</h1>
+    </section>
+
+    <section id="about">
+      <h1>关于我</h1>
+      <p>我是你们的寒泽陌呀！</p>
+    </section>
+
+    <section id="blog">
+      <h1>博客文章</h1>
+      <article>
+        <h3>Mine BBS被封了</h3>
+        <p>
+          我真服了呀，我就是一不小心发了个违规资源我也不知道是违规的呀。为什么第2天起来就封了三天(┳Д┳）
+          <a href="https://imgse.com/i/pPX19W8">点击查看图片</a>
+          <br />2023年10月5日
+        </p>
+      </article>
+
+      <article>
+        <h3>暂无文章</h3>
+        <p>暂无文章</p>
+      </article>
+    </section>
+
+    <section id="contact">
+      <h1>联系我</h1>
+      <p>邮箱：ghhhh49@outlook.com</p>
+      <a href="https://www.douyin.com/user/MS4wLjABAAAA8WUaJfQeV6KKzpeRQS64OU85oKwmvWFcRIXjNz8GrnwfGskDXUPNcFVBprd_XzW9"
+        >点我传送到抖音</a
+      >
+      <br /><br /><br />
+      <a href="https://github.com/hzm20">点我传送到Github</a> <br /><br /><br />
+      <a href="https://www.minebbs.com/members/tenderno.74112/"
+        >点我传送到Mine BBS</a
+      >
+    </section>
+
+    <section id="jw">
+      <h1>个人制作 © 2023寒泽陌</h1>
+    </section>
+  </body>
+</html>
