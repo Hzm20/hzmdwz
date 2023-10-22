@@ -6,6 +6,21 @@
     <link rel="icon" href="favicon.ico" />
     <title>寒泽陌的网站</title>
     <style>
+      h1 {
+  text-align: center;
+}
+      .avatar-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+    }
+    
+    .avatar-svg {
+      display: block;
+      width: 150px;
+      height: 150px;
+    }
       h2 {
         background: linear-gradient(
           to right,
@@ -194,6 +209,18 @@
       </ul>
     </nav>
     
+  <div class="avatar-container">
+    <svg class="avatar-svg" viewBox="0 0 100 100">
+      <defs>
+        <clipPath id="avatar-clip">
+          <circle cx="50" cy="50" r="50" />
+        </clipPath>
+      </defs>
+      <image xlink:href="avatar.jpg" width="100" height="100" clip-path="url(#avatar-clip)" />
+    </svg>
+  </div>
+  <h1>寒泽陌</h1>
+
         <img src="img.jpg" width="360" height="auto"/>
     <section id="audio">
     <h2>魔怔音乐</h2>
@@ -201,11 +228,12 @@
   <source src="audio.mp3" type="audio/mp3">
   Your browser does not support the audio element.
 </audio>
+<a href="https://hzm20.github.io/hzmdwz/ein kleines lied (around the world)-candee!.txt">魔怔音乐歌词</a>
 <br><br>
     <h2>不问别离</h2>
     <audio controls>
   <source src="audio1.mp3" type="audio/mp3">
-  Your browser does not support the audio element.
+  Your browser does not support the audio element.<br>      
     </section>
 </audio>
     <section id="home">
@@ -242,9 +270,7 @@
       >
       <br /><br /><br />
       <a href="https://github.com/hzm20">点我传送到Github</a> <br /><br /><br />
-      <a href="https://www.minebbs.com/members/tenderno.74112/"
-        >点我传送到Mine BBS</a
-      >
+      <a href="https://www.minebbs.com/members/tenderno.74112/">点我传送到Mine BBS</a>
     </section>
 
     <section id="jw">
