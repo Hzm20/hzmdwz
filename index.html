@@ -6,82 +6,85 @@
     <link rel="icon" href="favicon.ico" />
     <title>寒泽陌的网站</title>
     <style>
-.menu {
-  display: flex;
-  justify-content: flex-end;
-    background-color: #93c572;
+    .my-image {
+  border: 5px solid #ccc; /* 添加5像素宽度、灰色实线样式的边框 */
+  border-radius: 10px; /* 添加10像素的圆角 */
 }
 
-/* 菜单列表容器的样式 */
-.menu-list {
-  display: flex;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.menu-list li {
-  margin-left: 10px;
-}
-
-/* 菜单按钮的样式 */
-.menu-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-  cursor: pointer;
-  width: 30px;
-  height: 20px;
-  border: none;
-  outline: none;
-  background-color: transparent;
-}
-
-/* 菜单按钮的横杠样式 */
-.menu-button span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: #000;
-  transition: transform 0.3s; /* 添加过渡效果 */
-}
-
-/* 点击菜单按钮后将横杠变成 X 的样式 */
-.menu-toggle:checked ~ .menu-button span:nth-child(1) {
-  transform: rotate(45deg) translate(0, 8px); /* 将第一个横杠旋转并平移 */
-}
-
-.menu-toggle:checked ~ .menu-button span:nth-child(2) {
-  opacity: 0; /* 隐藏第二个横杠 */
-}
-
-.menu-toggle:checked ~ .menu-button span:nth-child(3) {
-  transform: rotate(-45deg) translate(0, -8px); /* 将第三个横杠旋转并平移 */
-}
-
-/* 菜单按钮外部容器的样式 */
-.menu-container {
+.image-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  border: 2px solid #93c572; /* 添加边框样式，并设置颜色为 #93c572 */
-  padding: 10px;
 }
-
-
-/* 添加媒体查询以在移动端显示/隐藏菜单列表 */
-@media only screen and (max-width: 768px) {
-  .menu-list {
-    display: none;
-  }
-  
-  .menu-toggle:checked ~ .menu-list {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
+    a {
+  color: black; /* 将链接的颜色设置为黑色或其他你想要的颜色 */
+  text-decoration: none; /* 去除链接的下划线 */
 }
+    .menu-item {
+  color: black; /* 将颜色设置为黑色或者其他你想要的颜色 */
+}
+    .menu-item a {
+  color: black; /* 将链接的颜色设置为黑色或其他你想要的颜色 */
+  text-decoration: none; /* 可选：去除链接的下划线 */
+}
+    .menu-open {
+  display: block;
+}
+    .menu-container {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .menu-button {
+      display: block;
+      width: 30px;
+      height: 30px;
+      margin-left: 0;
+      top: 0; /* 菜单按钮距离顶部的距离 */
+      left: 0; /* 菜单按钮距离左侧的距离 */
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .menu-button span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      top: 0; /* 菜单按钮距离顶部的距离 */
+      left: 0; /* 菜单按钮距离左侧的距离 */
+      background-color: black;
+      margin-bottom: 5px;
+      transition: transform 0.3s ease;
+    }
+    
+    .menu-button.open span:nth-child(1) {
+      transform: rotate(45deg) translate(0, 8px);
+    }
+    
+    .menu-button.open span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-button.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(0, -8px);
+    }
+    
+    .menu {
+      right: 100;
+      position: fixed;
+      top: 20;
+      right: 0;
+      left: 0;
+      width: 150px;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      display: none;
+    }
+    
+    .menu-container.open .menu {
+      display: block;
+    }
       h1 {
   text-align: center;
 }
@@ -123,13 +126,13 @@
         background-color: #93c572;
         color: #000;
         padding: 30px;
-        text-align: center;
       }
 
       header h2 {
         margin: 0;
         font-size: 24px;
         color: #000;
+        text-align: center;
       }
 
       #site-title {
@@ -234,6 +237,38 @@
 
   <body>
     <header>
+              <div class="menu-container">
+      <button class="menu-button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="menu">
+        <!-- 菜单内容 -->
+        <ul>
+        <li><a href="#audio">音乐</a></li>
+        <li><a href="#home">首页</a></li>
+        <li><a href="#about">关于我</a></li>
+        <li><a href="#blog">文章</a></li>
+        <li><a href="#contact">联系我</a></li>
+        <li><a href="#jw">结尾</a></li>
+        </ul>
+      </div>
+    </div>
+      <script>
+    document.addEventListener('click', function(event) {
+      var menuContainer = event.target.closest('.menu-container');
+      var isOpen = menuContainer.classList.contains('open');
+
+      if (!menuContainer || (isOpen && !event.target.closest('.menu'))) {
+        // 点击空白处或已打开的菜单按钮之外的地方，关闭菜单
+        menuContainer.classList.remove('open');
+      } else if (event.target.closest('.menu-button')) {
+        // 点击菜单按钮，切换菜单的打开和关闭状态
+        menuContainer.classList.toggle('open');
+      }
+    });
+  </script>
       <h2 id="greeting"></h2>
       <script>
         let greeting = document.getElementById("greeting");
@@ -257,22 +292,7 @@
           greeting.innerHTML = "欢迎来到寒泽的网站<br>夜里好！";
         }
     </script>
-<nav class="menu">
-  <input type="checkbox" id="menu-toggle" class="menu-toggle">
-  <label for="menu-toggle" class="menu-button">
-    <span></span>
-    <span></span>
-    <span></span>
-  </label>
-  <ul class="menu-list">
-    <li><a href="#audio">音乐</a></li>
-    <li><a href="#home">首页</a></li>
-    <li><a href="#about">关于我</a></li>
-    <li><a href="#blog">文章</a></li>
-    <li><a href="#contact">联系我</a></li>
-    <li><a href="#jw">结尾</a></li>
-  </ul>
-</nav>
+
     </header>
     
     <nav>
@@ -298,7 +318,9 @@
 </div>
   <h1>寒泽陌</h1>
 
-        <img src="img.jpg" width="360" height="auto"/>
+<div class="image-container">
+  <img src="img.jpg" width="360" height="auto" class="my-image"/>
+</div>
     <section id="audio">
     <h2>魔怔音乐</h2>
     <audio controls>
