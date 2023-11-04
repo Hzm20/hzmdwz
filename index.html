@@ -6,10 +6,20 @@
     <link rel="icon" href="favicon.ico" />
     <title>寒泽陌的网站</title>
     <style>
-.video-container {
+video {
   display: flex;
   justify-content: center;
-  border: 5px solid #ccc; /* 添加2像素宽度、灰色实线样式的边框 */
+  align-items: center;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+video video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 根据视频内容的比例缩放并保持完整显示 */
 }
     a {
   color: black; /* 将链接的颜色设置为黑色或其他你想要的颜色 */
@@ -165,21 +175,13 @@
       }
 
       section {
-        padding: 20px;
-        margin: 20px auto;
-        max-width: 270px;
+        padding: 30px;
+        margin: 30px auto;
         background-color: #f2fff2;
         border-radius: 10px; /*增加圆角*/
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      }
-
-      @media screen and (orientation: landscape) {
-        section {
-          /* 在横屏时应用的样式 */
-          padding: 50px;
-          margin: 50px auto;
-          max-width: 500px;
-        }
+        margin-right: 25px; /* 设置右侧margin为10px */
+        margin-left: 25px; /* 设置左侧margin为20px */
       }
 
       section h2 {
@@ -252,42 +254,52 @@
       </div>
     </div>
       <script>
-    document.addEventListener('click', function(event) {
-      var menuContainer = event.target.closest('.menu-container');
-      var isOpen = menuContainer.classList.contains('open');
+var menuContainer = document.querySelector('.menu-container');
+var isOpen = false;
 
-      if (!menuContainer || (isOpen && !event.target.closest('.menu'))) {
-        // 点击空白处或已打开的菜单按钮之外的地方，关闭菜单
-        menuContainer.classList.remove('open');
-      } else if (event.target.closest('.menu-button')) {
-        // 点击菜单按钮，切换菜单的打开和关闭状态
-        menuContainer.classList.toggle('open');
-      }
-    });
+function closeMenu() {
+  menuContainer.classList.remove('open');
+  isOpen = false;
+}
+
+function toggleMenu() {
+  menuContainer.classList.toggle('open');
+  isOpen = !isOpen;
+}
+
+function handleClick(event) {
+  var target = event.target;
+
+  if (isOpen && !target.closest('.menu') && !target.closest('.menu-button')) {
+    // 点击菜单以外的区域关闭菜单
+    closeMenu();
+  } else if (target.closest('.menu-button')) {
+    // 切换菜单的打开和关闭状态
+    toggleMenu();
+  } else if (isOpen && target.closest('.menu')) {
+    // 点击菜单内部的其他元素关闭菜单
+    closeMenu();
+  }
+}
+
+// 点击菜单以外的区域关闭菜单
+document.addEventListener('click', handleClick);
+
+// 在手机端，当屏幕尺寸改变时，关闭菜单
+window.addEventListener('resize', function() {
+  if (window.innerWidth < 768 && isOpen) {
+    closeMenu();
+  }
+});
+
+// 在横屏端，当屏幕尺寸改变时，关闭菜单
+window.addEventListener('orientationchange', function() {
+  if (window.innerWidth >= 768 && isOpen) {
+    closeMenu();
+  }
+});
   </script>
-      <h2 id="greeting"></h2>
-      <script>
-        let greeting = document.getElementById("greeting");
-        let now = new Date();
-        let hour = now.getHours();
-        if (hour < 6) {
-          greeting.innerHTML = "欢迎来到寒泽的网站<br>凌晨好！";
-        } else if (hour < 9) {
-          greeting.innerHTML = "欢迎来到寒泽的网站<br>早上好！";
-        } else if (hour < 12) {
-          greeting.innerHTML = "欢迎来到寒泽的网站<br>上午好！";
-        } else if (hour < 14) {
-          greeting.innerHTML = "欢迎来到寒泽的网站<br>中午好！";
-        } else if (hour < 17) {
-          greeting.innerHTML = "欢迎来到寒泽的网站<br>下午好！";
-        } else if (hour < 19) {
-          greeting.innerHTML = "欢迎来到寒泽的网站<br>傍晚好！";
-        } else if (hour < 22) {
-          greeting.innerHTML = "欢迎来到寒泽的网站<br>晚上好！";
-        } else {
-          greeting.innerHTML = "欢迎来到寒泽的网站<br>夜里好！";
-        }
-    </script>
+        <h1>寒泽陌的网站</h1> 
 
     </header>
     
@@ -314,9 +326,9 @@
 </div>
   <h1>寒泽陌</h1>
 
-<div class="video-container">
-<video src="http://powernod.com/u/976eabb3d87c1129" width="360" height="auto" controls></video>
-</div>
+
+<video src="http://chuxinya.top/view.php/6d1d95574839ee5afa01a5677c61a288.mp4" width="360" height="auto" controls></video>
+
     <section id="audio">
     <h2>魔怔音乐</h2>
     <audio controls>
@@ -333,6 +345,29 @@
 </audio>
     <section id="home">
       <h1>首页</h1>
+      <h2 id="greeting"></h2>
+      <script>
+        let greeting = document.getElementById("greeting");
+        let now = new Date();
+        let hour = now.getHours();
+        if (hour < 6) {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>凌晨好！";
+        } else if (hour < 9) {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>早上好！";
+        } else if (hour < 12) {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>上午好！";
+        } else if (hour < 14) {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>中午好！";
+        } else if (hour < 17) {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>下午好！";
+        } else if (hour < 19) {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>傍晚好！";
+        } else if (hour < 22) {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>晚上好！";
+        } else {
+          greeting.innerHTML = "欢迎来到寒泽的网站<br>夜里好！";
+        }
+    </script>
     </section>
 
     <section id="about">
@@ -356,11 +391,18 @@
 
     <section id="blog">
       <h1>博客文章</h1>
+        <article>
+        <h3>跳闸小能手</h3>
+        <p>
+跳闸小能手启动，因为我们班有一个风扇电源是直接干电闸里面去了。然后呢每天我的一位同学他就拿着鞭子，然后打开电闸，盖子按TandR然后呢按T的时候电闸自动打下来了。后来后来呢，他就不想拿钉子，然后他就想到了一个办法，他就抱着我，然后让我来去按。（因为他比我重，而且力气也很大）然后呢就啪啪啪，每天就啪啪啪，有一次呢，我跳闸的时候还看到一次火花闪烁。也就是有一个白点闪了一下。
+          <br />2023年11月4日
+        </p>
+      </article>
       <article>
         <h3>Mine BBS被封了</h3>
         <p>
           我真服了呀，我就是一不小心发了个违规资源我也不知道是违规的呀。为什么第2天起来就封了三天(┳Д┳）
-          <a href="https://imgse.com/i/pPX19W8">点击查看图片</a>
+<img src="https://z1.ax1x.com/2023/10/05/pPX19W8.jpg" alt="pPX19W8.jpg" width="250" height="auto">
           <br />2023年10月5日
         </p>
       </article>
@@ -373,13 +415,21 @@
 
     <section id="contact">
       <h1>联系我</h1>
-      <a href="mailto:ghhhh49@outlook.com">邮箱</a><br><br><br>
-      <a href="https://www.douyin.com/user/MS4wLjABAAAA8WUaJfQeV6KKzpeRQS64OU85oKwmvWFcRIXjNz8GrnwfGskDXUPNcFVBprd_XzW9"
-        >点我传送到抖音</a
-      >
-      <br /><br /><br />
-      <a href="https://github.com/hzm20">点我传送到Github</a> <br /><br /><br />
-      <a href="https://www.minebbs.com/members/tenderno.74112/">点我传送到Mine BBS</a>
+<a href="mailto:ghhhh49@outlook.com">
+  <img src="https://z1.ax1x.com/2023/11/04/piM5rY6.png"  width="40" height="40">
+</a>
+<a href="https://www.douyin.com/user/MS4wLjABAAAA8WUaJfQeV6KKzpeRQS64OU85oKwmvWFcRIXjNz8GrnwfGskDXUPNcFVBprd_XzW9">
+  <img src="https://z1.ax1x.com/2023/11/04/piM5Qwn.png"  width="40" height="40">
+</a>
+
+<a href="https://github.com/hzm20">
+  <img src="https://z1.ax1x.com/2023/11/04/piM52OH.png"  width="40" height="40">
+<a href="https://www.minebbs.com/members/tenderno.74112/">
+  <img src="http://chuxinya.top/view.php/202315672ee76340e967c0814b161318.jpg"  width="40" height="40">
+  <a href="https://v.kuaishou.com/bKZlYp ">
+  <img src="http://chuxinya.top/view.php/03935ca538a9028f219e610b8ba5a8c7.png"  width="40" height="40">
+
+
     </section>
 
     <section id="jw">
