@@ -6,6 +6,7 @@
     <link rel="icon" href="favicon.ico" />
     <title>寒泽陌的网站</title>
     <style>
+
 video {
   display: flex;
   justify-content: center;
@@ -251,6 +252,19 @@ video video {
         <li><a href="#contact">联系我</a></li>
         <li><a href="#jw">结尾</a></li>
         </ul>
+        <a href="mailto:ghhhh49@outlook.com">
+  <img src="https://z1.ax1x.com/2023/11/04/piM5rY6.png"  width="40" height="40">
+</a>
+<a href="https://www.douyin.com/user/MS4wLjABAAAA8WUaJfQeV6KKzpeRQS64OU85oKwmvWFcRIXjNz8GrnwfGskDXUPNcFVBprd_XzW9">
+  <img src="https://z1.ax1x.com/2023/11/04/piM5Qwn.png"  width="40" height="40">
+</a>
+
+<a href="https://github.com/hzm20">
+  <img src="https://z1.ax1x.com/2023/11/04/piM52OH.png"  width="40" height="40">
+<a href="https://www.minebbs.com/members/tenderno.74112/">
+  <img src="http://chuxinya.top/view.php/202315672ee76340e967c0814b161318.jpg"  width="40" height="40">
+  <a href="https://v.kuaishou.com/bKZlYp">
+  <img src="http://chuxinya.top/view.php/03935ca538a9028f219e610b8ba5a8c7.png"  width="40" height="40">
       </div>
     </div>
       <script>
@@ -299,7 +313,23 @@ window.addEventListener('orientationchange', function() {
   }
 });
   </script>
-        <h1>寒泽陌的网站</h1> 
+<br><br>
+  
+<h1 class="website-title"><span>寒泽陌的网站</span></h1>
+<script>
+function handleTitleClick(event) {
+  var target = event.target;
+
+  if (target.closest('h1')) {
+    // 如果单击标题，则不跳转链接
+    event.preventDefault();
+  }
+}
+
+document.addEventListener('click', handleTitleClick);
+</script>
+  
+
 
     </header>
     
@@ -433,7 +463,30 @@ window.addEventListener('orientationchange', function() {
     </section>
 
     <section id="jw">
-      <h1>个人制作 © 2023寒泽陌</h1>
+      <h2>个人制作 © 2023寒泽陌</h2>
     </section>
+    <audio id="bgMusic" src="http://chuxinya.top/view.php/894d615b74caaba14ede61cd89adb9f2.mp3"></audio>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var bgMusic = document.getElementById('bgMusic');
+    bgMusic.play();
+    
+    bgMusic.addEventListener('ended', function() {
+      bgMusic.pause();
+    });
+  });
+      <audio id="bgMusic" src="原神启动.mp3"></audio>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var bgMusic = document.getElementById('bgMusic');
+    bgMusic.play();
+    
+    bgMusic.addEventListener('ended', function() {
+      bgMusic.pause();
+    });
+  });
+</script>
   </body>
 </html>
