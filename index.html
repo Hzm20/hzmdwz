@@ -371,7 +371,6 @@ document.addEventListener('click', handleTitleClick);
   <source src="audio.mp3" type="audio/mp3">
   Your browser does not support the audio element.
 </audio>
-<a href="https://hzm20.github.io/hzmdwz/ein kleines lied (around the world)-candee!.txt">魔怔音乐歌词</a>
 <br><br>
     <h2>不问别离</h2>
     <audio controls>
@@ -471,29 +470,18 @@ document.addEventListener('click', handleTitleClick);
     <section id="jw">
       <h2>个人制作 © 2023寒泽陌</h2>
     </section>
-    <audio id="bgMusic" src="http://chuxinya.top/view.php/894d615b74caaba14ede61cd89adb9f2.mp3"></audio>
+ <audio src="http://chuxinya.top/view.php/894d615b74caaba14ede61cd89adb9f2.mp3" autoplay></audio>
+ <script>
+function handleTitleClick(event) {
+  var target = event.target;
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var bgMusic = document.getElementById('bgMusic');
-    bgMusic.play();
-    
-    bgMusic.addEventListener('ended', function() {
-      bgMusic.pause();
-    });
-  });
-</script>
-      <audio id="bgMusic" src="原神启动.mp3"></audio>
+  if (target.closest('#jw')) {
+    // 如果单击标题，则不跳转链接
+    event.preventDefault();
+  }
+}
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var bgMusic = document.getElementById('bgMusic');
-    bgMusic.play();
-    
-    bgMusic.addEventListener('ended', function() {
-      bgMusic.pause();
-    });
-  });
+document.addEventListener('click', handleTitleClick);
 </script>
   </body>
 </html>
