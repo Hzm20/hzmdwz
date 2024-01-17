@@ -5,7 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="favicon.ico" />
     <title>寒泽陌的网站</title>
-    <script>document.addEventListener('visibilitychange',function(){if(document.visibilityState=='hidden'){normal_title=document.title;document.title='👀跑哪里去了？';}else{document.title=normal_title;}});</script>
+    <script>
+     document.addEventListener('visibilitychange', function () {
+      var isHidden = document.hidden;
+      if (isHidden) {
+        document.title = '👀跑哪里去了？';
+      } else {
+        setTimeout(() => {
+          document.title = '🐷抓到你啦';
+        }, 2000);
+        setTimeout(() => {
+          document.title = '寒泽陌的网站';
+        }, 3000);
+      }
+    });
+    </script>
     <style>
 
 video {
